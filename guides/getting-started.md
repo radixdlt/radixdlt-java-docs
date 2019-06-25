@@ -6,18 +6,18 @@ In this guide, we'll build a small distributed App \(DApp\) from the ground up u
 
 The guide is divided into several sections:
 
-* **​**[**Basic Setup**](../javascript-client-library/quick-start.md#basic-setup) will give you a starting point to follow the tutorial.
-* **​**[**Overview**](../javascript-client-library/quick-start.md#overview) will teach you the fundamentals of Radix's architecture.
-* **​**[**Building a ChatBot**](get-started.md#building-a-chatbot) will show you how to make your first basic DApp.
-* **​**[**Beyond the basics**](../javascript-client-library/quick-start.md#beyond-the-basics) will give you additional examples to acquire a deeper understanding of the Java library.
+* **​**[**Basic Setup**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/javascript-client-library/quick-start.md#basic-setup) will give you a starting point to follow the tutorial.
+* **​**[**Overview**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/javascript-client-library/quick-start.md#overview) will teach you the fundamentals of Radix's architecture.
+* **​**[**Building a ChatBot**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/get-started.md#building-a-chatbot) will show you how to make your first basic DApp.
+* **​**[**Beyond the basics**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/javascript-client-library/quick-start.md#beyond-the-basics) will give you additional examples to acquire a deeper understanding of the Java library.
 
 ### About our example DApp
 
 As our example DApp for this guide, we'll be building a simple ChatBot that receives and replies messages sent to a specific Radix address. With our small ChatBot DApp you'll learn to:
 
 * Bootstrap and connect to the Radix Distributed Ledger
-* Create a Radix [Identity](../../learn/glossary.md#identity)
-* Create a Radix [Address](../../learn/glossary.md#address) from this identity
+* Create a Radix [Identity](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#identity)
+* Create a Radix [Address](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#address) from this identity
 * Send and receive encrypted messages to other Radix addresses
 
 Don't worry if you're new to Radix's concepts, as we will review the basic building blocks along the way.
@@ -58,13 +58,13 @@ Now that you’re set up, feel free to review our glossary so we can share a com
 **Tip:** if you're new to Radix we suggest to take a minute and dig into the concepts that make Radix a unique distributed ledger technology.
 {% endhint %}
 
-* [Universe](../../learn/glossary.md#universe)
-* [Shards](../../learn/glossary.md#shard)
-* [Nodes](../../learn/glossary.md#nodes)
-* [Atoms](../../learn/glossary.md#atoms)
-* [Account](../../learn/glossary.md#account)
-* [Address](../../learn/glossary.md#address)
-* [Identity](../../learn/glossary.md#identity)
+* [Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#universe)
+* [Shards](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#shard)
+* [Nodes](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#nodes)
+* [Atoms](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#atoms)
+* [Account](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#account)
+* [Address](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#address)
+* [Identity](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#identity)
 
 ## Building a ChatBot
 
@@ -72,7 +72,7 @@ Now that we have done a brief overview of the concepts behind Radix and we share
 
 ### Connecting to the network
 
-The first step, before we can interact with the ledger, is to choose which [Universe](get-started.md#universe) we want to connect to. In this case, we will use the **ALPHANET** universe configuration since it's our main testing environment.
+The first step, before we can interact with the ledger, is to choose which [Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/get-started.md#universe) we want to connect to. In this case, we will use the **ALPHANET** universe configuration since it's our main testing environment.
 
 We start by creating a ChatBot class and initializing the connection to a Radix Universe using the `RadixUniverse.bootstrap()` method:
 
@@ -83,7 +83,7 @@ public class ChatBot {
     static {
         RadixUniverse.bootstrap(Bootstrap.ALPHANET);
     }
-	
+
     public ChatBot() {
     }
 }
@@ -100,7 +100,7 @@ public class ChatBot {
     static {
         RadixUniverse.bootstrap(Bootstrap.ALPHANET);
     }
-	
+
     public ChatBot() throws IOException {
         // Load Identity
         final RadixIdentity chatBotIdentity = new SimpleRadixIdentity("chatbot.key");
@@ -114,7 +114,7 @@ public class ChatBot {
 
 ### Creating a Radix Address
 
-Now, using the public key of the identity, we can generate a unique Radix [address](../../learn/glossary.md#address), which is the ChatBot's unique identifier in the Radix Universe.
+Now, using the public key of the identity, we can generate a unique Radix [address](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#address), which is the ChatBot's unique identifier in the Radix Universe.
 
 ```java
 public class ChatBot {
@@ -179,7 +179,7 @@ public class ChatBot {
     static {
         RadixUniverse.bootstrap(Bootstrap.ALPHANET);
     }
-	
+
     private final RadixAddress address;
 
     public ChatBot(Function<String,String> chatBotAlgorithm) {
@@ -191,7 +191,7 @@ public class ChatBot {
         // Subscribe/Decrypt messages
         final Observable<RadixMessage> messageObservables = RadixMessaging.getInstance()
                                                                     .getAllMessagesDecrypted(chatBotIdentity);
-		
+
         // Print messages
         messageObservables.subscribe(System.out::println);
 
@@ -202,7 +202,7 @@ public class ChatBot {
             .subscribe(message ->
                 RadixMessaging.getInstance()
                     .sendMessage(chatBotAlgorithm.apply(message.getContent()), chatBotIdentity, message.getFrom());
-	}
+    }
 }
 ```
 
@@ -229,46 +229,45 @@ import io.reactivex.ObservableSource;
 import java.util.function.Function;
 
 public class ChatBot {
-	static {
-		RadixUniverse.bootstrap(Bootstrap.ALPHANET);
-	}
+    static {
+        RadixUniverse.bootstrap(Bootstrap.ALPHANET);
+    }
 
-	private final RadixAddress address;
+    private final RadixAddress address;
 
-	public ChatBot(Function<String,String> chatBotAlgorithm) throws Exception {
-		// Load Identity
-		final RadixIdentity chatBotIdentity = new SimpleRadixIdentity("chatbot.key");
-		final ECPublicKey publicKey = chatBotIdentity.getPublicKey();
-		this.address = RadixUniverse.getInstance().getAddressFrom(publicKey);
+    public ChatBot(Function<String,String> chatBotAlgorithm) throws Exception {
+        // Load Identity
+        final RadixIdentity chatBotIdentity = new SimpleRadixIdentity("chatbot.key");
+        final ECPublicKey publicKey = chatBotIdentity.getPublicKey();
+        this.address = RadixUniverse.getInstance().getAddressFrom(publicKey);
 
-		// Subscribe/Decrypt messages
-		final Observable<RadixMessage> messageObservables = RadixMessaging.getInstance()
-			.getAllMessagesDecrypted(chatBotIdentity);
+        // Subscribe/Decrypt messages
+        final Observable<RadixMessage> messageObservables = RadixMessaging.getInstance()
+            .getAllMessagesDecrypted(chatBotIdentity);
 
-		// Print messages
-		messageObservables.subscribe(System.out::println);
+        // Print messages
+        messageObservables.subscribe(System.out::println);
 
-		// Chatbot replies
-		messageObservables
-			.filter(message -> !message.getFrom().equals(address)) // Don't reply to ourselves!
-			.filter(message -> Math.abs(message.getTimestamp() - System.currentTimeMillis()) < 60000) // Only reply to recent messages
-			.flatMap((io.reactivex.functions.Function<RadixMessage, ObservableSource<AtomSubmissionUpdate>>) message ->
-				RadixMessaging.getInstance().sendMessage(chatBotAlgorithm.apply(message.getContent() + " from Bot!"), chatBotIdentity, message.getFrom())
-			).subscribe(System.out::println, Throwable::printStackTrace);
-	}
+        // Chatbot replies
+        messageObservables
+            .filter(message -> !message.getFrom().equals(address)) // Don't reply to ourselves!
+            .filter(message -> Math.abs(message.getTimestamp() - System.currentTimeMillis()) < 60000) // Only reply to recent messages
+            .flatMap((io.reactivex.functions.Function<RadixMessage, ObservableSource<AtomSubmissionUpdate>>) message ->
+                RadixMessaging.getInstance().sendMessage(chatBotAlgorithm.apply(message.getContent() + " from Bot!"), chatBotIdentity, message.getFrom())
+            ).subscribe(System.out::println, Throwable::printStackTrace);
+    }
 
-	public static void main(String[] args) throws Exception {
-		ChatBot chatBot = new ChatBot(Function.identity());
-		System.out.println("Chatbot address: " + chatBot.address);
+    public static void main(String[] args) throws Exception {
+        ChatBot chatBot = new ChatBot(Function.identity());
+        System.out.println("Chatbot address: " + chatBot.address);
 
-		// Send message to bot
-		RadixIdentity oneTimeUseIdentity = new OneTimeUseIdentity();
-		RadixMessaging.getInstance()
-			.sendMessage("Hello World", oneTimeUseIdentity, chatBot.address)
-			.subscribe(System.out::println);
-	}
+        // Send message to bot
+        RadixIdentity oneTimeUseIdentity = new OneTimeUseIdentity();
+        RadixMessaging.getInstance()
+            .sendMessage("Hello World", oneTimeUseIdentity, chatBot.address)
+            .subscribe(System.out::println);
+    }
 }
-
 ```
 
 Running this will produce output similar to this:
@@ -288,9 +287,9 @@ As we reach the end of our DApp example, we want to share some extra code snippe
 ### Code examples
 
 * **General**
-  * [Initializing a Universe](code-examples.md#initializing-a-universe)
+  * [Initializing a Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/code-examples.md#initializing-a-universe)
 * **Manage identities**
-  * [Creating an Identity](code-examples.md#creating-an-identity)
+  * [Creating an Identity](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/code-examples.md#creating-an-identity)
 * **Manage transactions**
-  * [Storing and retrieving data](code-examples.md#storing-and-retrieving-data)
+  * [Storing and retrieving data](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/code-examples.md#storing-and-retrieving-data)
 

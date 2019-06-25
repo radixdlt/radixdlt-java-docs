@@ -1,15 +1,29 @@
+---
+description: >-
+  The developers guide to building on the Radix Network with the Java client
+  library
+---
+
 # Java client library
+
+## Introduction <a id="introduction"></a>
+
+A Java client library for interacting with a [Radix](https://www.radixdlt.com/) Distributed Ledger.
+
+{% hint style="info" %}
+**Note:** this library and the network itself are currently in **Beta** development phase. Please report any issues in the [GitHub issue tracker](https://github.com/radixdlt/radixdlt-js/issues).
+{% endhint %}
 
 ## Features <a id="features"></a>
 
-* Connect to the Alphanet test network
+* Connect to the Betanet test network
 * Fee-less transactions for Testnets
 * Identity Creation
 * Native token transfers
 * Immutable data storage
 * Instant Messaging and TEST token wallet DApp implementation
 * RXJava 2 based
-* Utilizes JSON-RPC over Websockets
+* Utilizes JSON-RPC over WebSockets
 
 ## Gradle <a id="gradle"></a>
 

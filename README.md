@@ -11,7 +11,7 @@ description: >-
 A Java client library for interacting with a [Radix](https://www.radixdlt.com/) Distributed Ledger.
 
 {% hint style="info" %}
-**Note:** this library and the network itself are currently in **Beta** development phase. Please report any issues in the [GitHub issue tracker](https://github.com/radixdlt/radixdlt-js/issues).
+**Note:** this library and the network itself are currently in **Beta** development phase. Please report any issues in the [GitHub issue tracker](https://github.com/radixdlt/radixdlt-java/issues).
 {% endhint %}
 
 ## Features <a id="features"></a>

@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Java client library](README.md)
+* [Knowledge Base](https://docs.radixdlt.com/)
 * [GitHub project](https://github.com/radixdlt/radixdlt-java)
 
 ## Guides

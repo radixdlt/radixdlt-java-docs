@@ -11,12 +11,12 @@ description: >-
 A Java client library for interacting with a [Radix](https://www.radixdlt.com/) Distributed Ledger.
 
 {% hint style="info" %}
-**Note:** this library and the network itself are currently in **Beta** development phase. Please report any issues in the [GitHub issue tracker](https://github.com/radixdlt/radixdlt-java/issues).
+**Note:** this library and the network itself are currently in **Alpha** development phase. Please report any issues in the [GitHub issue tracker](https://github.com/radixdlt/radixdlt-java/issues).
 {% endhint %}
 
 ## Features <a id="features"></a>
 
-* Connect to the Betanet test network
+* Connect to the Alphanet test network
 * Fee-less transactions for Testnets
 * Identity Creation
 * Native token transfers

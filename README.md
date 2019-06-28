@@ -20,11 +20,10 @@ A Java client library for interacting with a [Radix](https://www.radixdlt.com/) 
 ## Features <a id="features"></a>
 
 * Connect to the Betanet test network
-* Fee-less transactions for Testnets
-* Identity Creation
-* Native token transfers
-* Immutable data storage
-* Instant Messaging and TEST token wallet DApp implementation
+* Fee-less transactions for test networks
+* Public Key Identity Creation
+* Token Creation (ERC-777 style)
+* Message sending
 * RXJava 2 based
 * Utilizes JSON-RPC over WebSockets
 
@@ -40,7 +39,7 @@ repositories {
 
 ```javascript
 dependencies {
-    implementation 'com.radixdlt:radixdlt-java:0.11.3'
+    implementation 'com.radixdlt:radixdlt-java:0.12.0'
 }
 ```
 

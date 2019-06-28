@@ -5,7 +5,7 @@
 Let's review some code examples on how to handle generic tasks:
 
 * [Initializing a Universe](general-use.md#initializing-a-universe)
-* [Initializing the DApp API](general-use.md#initializing-the-dapp-api)
+* [Initializing the Application API](general-use.md#initializing-the-dapp-api)
 
 {% hint style="success" %}
 **Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
@@ -13,32 +13,33 @@ Let's review some code examples on how to handle generic tasks:
 
 ## Initializing a Universe
 
-To bootstrap to the **ALPHANET** test network:
-
-```java
-RadixUniverse.bootstrap(Bootstrap.ALPHANET);
-```
+A Universe is an instance of a Radix Distributed Ledger which is defined by a genesis atom and a dynamic set of unpermissioned nodes forming a network.
 
 To bootstrap to the **BETANET** test network:
 
-```text
+```java
 RadixUniverse.bootstrap(Bootstrap.BETANET);
 ```
 
-{% hint style="info" %}
-**Note:** No network connections will be made yet until it is required.
-{% endhint %}
-
-## Initializing the DApp API
+## Initializing the Application API
 
 The Radix Application API is a client-side API exposing high-level abstractions to make DApp creation easier.
 
 To initialize the API:
 
 ```java
-RadixUniverse.bootstrap(Bootstrap.ALPHANET); // This must be called before RadixApplicationAPI.create()
-RadixApplicationAPI api = RadixApplicationAPI.create(identity);
+RadixApplicationAPI api = RadixApplicationAPI.create(Bootstrap.BETANET, identity);
 ```
 
+To continually sync and pull from the network ledger on your account:
 
+```java
+Disposable d = api.pull();
+```
+
+To stop syncing:
+
+```java
+d.dispose();
+```
 

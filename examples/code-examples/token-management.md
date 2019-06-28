@@ -6,56 +6,53 @@ Let's review some code examples on how to handle tokens with the Java client lib
 
 * [Creating a token](token-management.md#creating-a-token)
 * [Minting tokens](token-management.md#minting-tokens)
-* [Getting a token's resource identifier](token-management.md#getting-a-tokens-resource-identifier)
+* [Burning tokens](token-management.md#burning-tokens)
 
 {% hint style="success" %}
 **Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
 {% endhint %}
 
-{% hint style="warning" %}
-**NOTE:** these examples requires **BETANET** network access.
-{% endhint %}
-
 ## Creating a token 
 
-To create your own token on Radix, you can use the `createToken(...)` method provided by the Java DApp API:
+To create a token, an RRI \(Radix Resource Identifier\) must first be constructed:
 
 ```java
-api.createToken(<token_name>, <iso_name>, <description>, 
-    <amount>, TokenUnitConversions.getMinimumGranularity(), 
-    TokenSupplyType.MUTABLE);
-```
-
-For example, to create 10000 UST tokens:
-
-```java
-api.createToken(
-    "UST Example Token",                              // Name
-    "UST",                                         // ISO
-    "This is a token created by me",               // Description
-    BigDecimal.valueOf(10000),                     // Amount
-    TokenUnitConversions.getMinimumGranularity(),  // Granularity: Default is 10^18
-    TokenSupplyType.MUTABLE                        // TokenSupplyType
-)
-```
-
-## Minting tokens
-
-When you need to mint new tokens, you can simply call the `mintTokens(...)` method as shown below:
-
-```java
-api.mintTokens(<iso_token_name>, <amount_to_mint>);
-```
-
-## Getting a token’s Resource Identifier
-
-To get the Radix Resource Identifier \(RRI\) for a token created by a previous call to `createToken(...)`, we have to:
-
-```java
-RRI myRRid = RRI.of(api.getMyAddress(), <iso_token_name>);
+RRI tokenRRI = RRI.of(api.getMyAddress(), "NEW");
 ```
 
 {% hint style="info" %}
 **Note:** no validation is made whether the returned RRI actually points to a valid token in the internal address space of the client.
 {% endhint %}
+
+To create a fixed-supply token:
+
+```java
+Result result = api.createFixedSupplyToken(tokenRRI, "New Token", "The Best Token", BigDecimal.valueOf(1000.0));
+result.blockUntilComplete();
+```
+
+To create a multi-issuance token:
+
+```java
+Result result = api.createMultiIssuance(tokenRRI, "New Token", "The Best Token");
+result.blockUntilComplete();
+```
+
+## Minting tokens
+
+To mint 1000 tokens \(must be multi-issuance\) in your account:
+
+```java
+Result result = api.mintTokens(tokenRRI, BigDecimal.valueOf(1000.0));
+result.blockUntilComplete();
+```
+
+## Burning tokens
+
+To burn 1000 tokens \(must be multi-issuance\) in your account:
+
+```java
+Result result = api.burnTokens(tokenRRI, BigDecimal.valueOf(1000.0));
+result.blockUntilComplete();
+```
 

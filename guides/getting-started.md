@@ -72,7 +72,7 @@ Now that we have done a brief overview of the concepts behind Radix and we share
 
 ### Connecting to the network
 
-The first step, before we can interact with the ledger, is to choose which [Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/get-started.md#universe) we want to connect to. In this case, we will use the **ALPHANET** universe configuration since it's our main testing environment.
+The first step, before we can interact with the ledger, is to choose which [Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/get-started.md#universe) we want to connect to. In this case, we will use the **BETANET** universe configuration since it's our main testing environment.
 
 We start by creating a ChatBot class and initializing the connection to a Radix Universe using the `RadixUniverse.bootstrap()` method:
 
@@ -81,7 +81,7 @@ import com.radixdlt.client.core.RadixUniverse;
 
 public class ChatBot {
     static {
-        RadixUniverse.bootstrap(Bootstrap.ALPHANET);
+        RadixUniverse.bootstrap(Bootstrap.BETANET);
     }
 
     public ChatBot() {
@@ -89,7 +89,7 @@ public class ChatBot {
 }
 ```
 
-This will initialize the connections to the network via the bootstrap nodes available on the **ALPHANET**.
+This will initialize the connections to the network via the bootstrap nodes available on the `BETANET`.
 
 ### Creating a Radix Identity
 
@@ -98,7 +98,7 @@ Next, we need to generate a `RadixIdentity` which will handle the private/public
 ```java
 public class ChatBot {
     static {
-        RadixUniverse.bootstrap(Bootstrap.ALPHANET);
+        RadixUniverse.bootstrap(Bootstrap.BETANET);
     }
 
     public ChatBot() throws IOException {
@@ -119,7 +119,7 @@ Now, using the public key of the identity, we can generate a unique Radix [addre
 ```java
 public class ChatBot {
     static {
-        RadixUniverse.bootstrap(Bootstrap.ALPHANET);
+        RadixUniverse.bootstrap(Bootstrap.BETANET);
     }
 
     private final RadixAddress address;
@@ -145,7 +145,7 @@ Once we have created an address for the ChatBot, we can begin to receive message
 ```java
 public class ChatBot {
     static {
-        RadixUniverse.bootstrap(Bootstrap.ALPHANET);
+        RadixUniverse.bootstrap(Bootstrap.BETANET);
     }
 
     private final RadixAddress address;
@@ -230,7 +230,7 @@ import java.util.function.Function;
 
 public class ChatBot {
     static {
-        RadixUniverse.bootstrap(Bootstrap.ALPHANET);
+        RadixUniverse.bootstrap(Bootstrap.BETANET);
     }
 
     private final RadixAddress address;
@@ -286,10 +286,9 @@ As we reach the end of our DApp example, we want to share some extra code snippe
 
 ### Code examples
 
-* **General**
-  * [Initializing a Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/code-examples.md#initializing-a-universe)
-* **Manage identities**
-  * [Creating an Identity](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/code-examples.md#creating-an-identity)
-* **Manage transactions**
-  * [Storing and retrieving data](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/code-examples.md#storing-and-retrieving-data)
+* [General use](../examples/code-examples/general-use.md)
+* [Atom management](../examples/code-examples/atom-management.md)
+* [Identity management](../examples/code-examples/identity-management.md)
+* [Transaction management](../examples/code-examples/transaction-management.md)
+* [Token management](../examples/code-examples/token-management.md)
 

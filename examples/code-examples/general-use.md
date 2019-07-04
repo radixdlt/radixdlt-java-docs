@@ -15,10 +15,10 @@ Let's review some code examples on how to handle generic tasks:
 
 A Universe is an instance of a Radix Distributed Ledger which is defined by a genesis atom and a dynamic set of unpermissioned nodes forming a network.
 
-To bootstrap to the **BETANET** test network:
+A predefined configuration to bootstrap into the **BETANET** network is available:
 
 ```java
-RadixUniverse.bootstrap(Bootstrap.BETANET);
+BootstrapConfig config = Bootstrap.BETANET;
 ```
 
 ## Initializing the Application API

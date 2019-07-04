@@ -287,7 +287,7 @@ As we reach the end of our DApp example, we want to share some extra code snippe
 ### Code examples
 
 * [General use](../examples/code-examples/general-use.md)
-* [Atom management](../examples/code-examples/atom-management.md)
+* [Atom management]()
 * [Identity management](../examples/code-examples/identity-management.md)
 * [Transaction management](../examples/code-examples/transaction-management.md)
 * [Token management](../examples/code-examples/token-management.md)

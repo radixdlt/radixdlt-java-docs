@@ -7,6 +7,8 @@ Let's review some code examples on how to handle tokens with the Java client lib
 * [Creating a token](token-management.md#creating-a-token)
 * [Minting tokens](token-management.md#minting-tokens)
 * [Burning tokens](token-management.md#burning-tokens)
+* [Sending tokens](token-management.md#sending-tokens)
+* [Retrieving tokens](token-management.md#retrieving-tokens)
 
 {% hint style="success" %}
 **Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
@@ -85,5 +87,44 @@ Or equivalently,
 BurnTokensAction burnAction = BurnTokensAction.create(tokenRRI, api.getAddress(), BigDecimal.valueOf(1000.0));
 Result result = api.execute(burnAction);
 result.blockUntilComplete();
+```
+
+## Sending tokens
+
+To send an amount from my address to another address:
+
+```java
+Result result = api.sendTokens(tokenRRI, BigDecimal.valueOf(10.99), <to-address>);
+result.blockUntilComplete();
+```
+
+Or equivalently,
+
+```java
+TransferTokensAction sendAction = TransferTokensAction.create(
+  tokenRRI,
+  api.getAddress(),
+  <to-address>,
+  BigDecimal.valueOf(10.00),
+  null
+);
+Result result = api.execute(sendAction);
+result.blockUntilComplete();
+```
+
+## Retrieving tokens
+
+To retrieve all of the token transfers which have occurred in my account:
+
+```java
+Observable<TokenTransfer> transfers = api.observeTokenTransfers();
+transfers.subscribe(tx -> { ... });
+```
+
+To get a stream of the balance of tokens in my account:
+
+```java
+Observable<BigDecimal> balance = api.observeBalance(tokenRRI);
+balance.subscribe(bal -> { ... });
 ```
 

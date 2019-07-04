@@ -4,10 +4,9 @@
 
 Let's review some code examples on how to handle transactions with the Java client library:
 
-* [Storing data](transaction-management.md#storing-data)
-* [Retrieving data](transaction-management.md#retrieving-data)
-* [Sending tokens](transaction-management.md#sending-tokens)
-* [Retrieving tokens](transaction-management.md#retrieving-tokens)
+* [Sending messages](transaction-management.md#storing-data)
+* [Receiving messages](transaction-management.md#retrieving-data)
+* [Executing atomic transactions](transaction-management.md#executing-atomic-transactions)
 
 {% hint style="success" %}
 **Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
@@ -51,45 +50,6 @@ readable.subscribe(data -> { ... });
 {% hint style="info" %}
 **Note:** data that can't be decrypted by the user's key is simply ignored.
 {% endhint %}
-
-## Sending tokens
-
-To send an amount from my address to another address:
-
-```java
-Result result = api.sendTokens(tokenRRI, BigDecimal.valueOf(10.99), <to-address>);
-result.blockUntilComplete();
-```
-
-Or equivalently,
-
-```java
-TransferTokensAction sendAction = TransferTokensAction.create(
-  tokenRRI,
-  api.getAddress(),
-  <to-address>,
-  BigDecimal.valueOf(10.00),
-  null
-);
-Result result = api.execute(sendAction);
-result.blockUntilComplete();
-```
-
-## Retrieving tokens
-
-To retrieve all of the token transfers which have occurred in my account:
-
-```java
-Observable<TokenTransfer> transfers = api.observeTokenTransfers();
-transfers.subscribe(tx -> { ... });
-```
-
-To get a stream of the balance of tokens in my account:
-
-```java
-Observable<BigDecimal> balance = api.observeBalance(tokenRRI);
-balance.subscribe(bal -> { ... });
-```
 
 ## Executing atomic transactions
 

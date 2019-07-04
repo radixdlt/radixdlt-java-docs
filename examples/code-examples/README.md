@@ -8,9 +8,9 @@ These code examples are divided into several topics:
   * [Initializing a Universe](general-use.md#initializing-a-universe)
   * [Initializing the Application API](general-use.md#initializing-the-dapp-api)
 * **Manage atoms**
-  * [Signing an atom](atom-management.md#signing-an-atom)
-  * [Submitting an atom to the ledger](atom-management.md#submitting-an-atom-to-the-ledger)
-  * [Sending an atom as a message](atom-management.md#sending-an-atom-as-message)
+  * [Signing an atom]()
+  * [Submitting an atom to the ledger]()
+  * [Sending an atom as a message]()
 * **Manage identities**
   * [Creating an Identity](identity-management.md#creating-an-identity)
   * [Generating an Address](identity-management.md#generating-an-address)

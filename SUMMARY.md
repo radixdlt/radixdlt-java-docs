@@ -13,7 +13,6 @@
 
 * [Code examples](examples/code-examples/README.md)
   * [General use](examples/code-examples/general-use.md)
-  * [Atom management](examples/code-examples/atom-management.md)
   * [Identity management](examples/code-examples/identity-management.md)
   * [Transaction management](examples/code-examples/transaction-management.md)
   * [Token management](examples/code-examples/token-management.md)

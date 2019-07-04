@@ -28,7 +28,7 @@ An address is a reference to an account and allows a user to receive tokens and/
 You can get your own address by:
 
 ```java
-RadixAddress myAddress = api.getMyAddress();
+RadixAddress myAddress = api.getAddress();
 ```
 
 Or from a base58 string:

@@ -17,7 +17,7 @@ Let's review some code examples on how to handle tokens with the Java client lib
 To create a token, an RRI \(Radix Resource Identifier\) must first be constructed:
 
 ```java
-RRI tokenRRI = RRI.of(api.getMyAddress(), "NEW");
+RRI tokenRRI = RRI.of(api.getAddress(), "NEW");
 ```
 
 {% hint style="info" %}
@@ -38,6 +38,21 @@ Result result = api.createMultiIssuance(tokenRRI, "New Token", "The Best Token")
 result.blockUntilComplete();
 ```
 
+Or equivalently,
+
+```java
+CreateTokenAction createAction = CreateTokenAction.create(
+  tokenRRI,
+  "New Token",
+  "The Best Token",
+  BigDecimal.ZERO,
+  TokenUnitConversions.getMinimumGranularity(),
+  TokenSupplyType.MUTABLE
+); 
+Result result = api.execute(createAction);
+result.blockUntilComplete();
+```
+
 ## Minting tokens
 
 To mint 1000 tokens \(must be multi-issuance\) in your account:
@@ -47,12 +62,28 @@ Result result = api.mintTokens(tokenRRI, BigDecimal.valueOf(1000.0));
 result.blockUntilComplete();
 ```
 
+Or equivalently,
+
+```java
+MintTokensAction mintAction = MintTokensAction.create(tokenRRI, api.getAddress(), BigDecimal.valueOf(1000.0));
+Result result = api.execute(mintAction);
+result.blockUntilComplete();
+```
+
 ## Burning tokens
 
 To burn 1000 tokens \(must be multi-issuance\) in your account:
 
 ```java
 Result result = api.burnTokens(tokenRRI, BigDecimal.valueOf(1000.0));
+result.blockUntilComplete();
+```
+
+Or equivalently,
+
+```java
+BurnTokensAction burnAction = BurnTokensAction.create(tokenRRI, api.getAddress(), BigDecimal.valueOf(1000.0));
+Result result = api.execute(burnAction);
 result.blockUntilComplete();
 ```
 

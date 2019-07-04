@@ -7,6 +7,7 @@
 ## Guides
 
 * [Getting started](guides/getting-started.md)
+* [Creating an ERC-like token](guides/creating-an-erc-like-token.md)
 
 ## Examples
 

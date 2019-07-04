@@ -38,7 +38,7 @@ repositories {
 
 ```javascript
 dependencies {
-    implementation 'com.radixdlt:radixdlt-java:0.12.0'
+    implementation 'com.radixdlt:radixdlt-java:1.0.0-beta-core-1.0.0-beta'
 }
 ```
 

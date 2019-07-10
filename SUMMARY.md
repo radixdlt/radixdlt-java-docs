@@ -14,6 +14,7 @@
 * [Code examples](examples/code-examples/README.md)
   * [General use](examples/code-examples/general-use.md)
   * [Identity management](examples/code-examples/identity-management.md)
+  * [Message management](examples/code-examples/message-management.md)
   * [Transaction management](examples/code-examples/transaction-management.md)
   * [Token management](examples/code-examples/token-management.md)
 

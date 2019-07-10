@@ -15,10 +15,17 @@ Let's review some code examples on how to handle generic tasks:
 
 A Universe is an instance of a Radix Distributed Ledger which is defined by a genesis atom and a dynamic set of unpermissioned nodes forming a network.
 
-A predefined configuration to bootstrap into the **BETANET** network is available:
+### Available networks
+
+| Network | Description |
+| :--- | :--- |
+| `LOCALHOST_SINGLENODE` | A locally hosted single node connection. |
+| `BETANET_SINGLENODE` | A single node Betanet connection. |
+
+A predefined configuration to bootstrap into the **LOCALHOST\_SINGLENODE** network is available:
 
 ```java
-BootstrapConfig config = Bootstrap.BETANET;
+BootstrapConfig config = Bootstrap.LOCALHOST_SINGLENODE;
 ```
 
 ## Initializing the Application API

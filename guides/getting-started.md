@@ -6,10 +6,10 @@ In this guide, we'll build a small distributed App \(DApp\) from the ground up u
 
 The guide is divided into several sections:
 
-* **​**[**Basic Setup**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/javascript-client-library/quick-start.md#basic-setup) will give you a starting point to follow the tutorial.
-* **​**[**Overview**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/javascript-client-library/quick-start.md#overview) will teach you the fundamentals of Radix's architecture.
-* **​**[**Building a ChatBot**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/guides/get-started.md#building-a-chatbot) will show you how to make your first basic DApp.
-* **​**[**Beyond the basics**](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/javascript-client-library/quick-start.md#beyond-the-basics) will give you additional examples to acquire a deeper understanding of the Java library.
+* **​**[**Basic Setup**](getting-started.md#basic-setup) will give you a starting point to follow the tutorial.
+* **​**[**Overview**](getting-started.md#overview) will teach you the fundamentals of Radix's architecture.
+* **​**[**Building a ChatBot**](getting-started.md#building-a-chatbot) will show you how to make your first basic DApp.
+* **​**[**Beyond the basics**](getting-started.md#beyond-the-basics) will give you additional examples to acquire a deeper understanding of the Java library.
 
 ### About our example DApp
 

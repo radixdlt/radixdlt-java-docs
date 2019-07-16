@@ -58,13 +58,13 @@ Now that you’re set up, feel free to review our glossary so we can share a com
 **Tip:** if you're new to Radix we suggest to take a minute and dig into the concepts that make Radix a unique distributed ledger technology.
 {% endhint %}
 
-* [Universe](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#universe)
-* [Shards](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#shard)
-* [Nodes](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#nodes)
-* [Atoms](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#atoms)
-* [Account](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#account)
-* [Address](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#address)
-* [Identity](https://github.com/radixdlt/radixdlt-java-docs/tree/a4d56556f33e1b032300053d7d2d93e551dab2e6/learn/glossary.md#identity)
+* [Universe](https://docs.radixdlt.com/alpha/learn/glossary#universe)
+* [Shards](https://docs.radixdlt.com/alpha/learn/glossary#shard)
+* [Nodes](https://docs.radixdlt.com/alpha/learn/glossary#nodes)
+* [Atoms](https://docs.radixdlt.com/alpha/learn/glossary#atoms)
+* [Account](https://docs.radixdlt.com/alpha/learn/glossary#account)
+* [Address](https://docs.radixdlt.com/alpha/learn/glossary#address)
+* [Identity](https://docs.radixdlt.com/alpha/learn/glossary#identity)
 
 ## Creating an ERC-like token
 
@@ -72,13 +72,13 @@ Now that we have done a brief overview of the concepts behind Radix and we share
 
 ### Creating a Radix Identity
 
-The first step is to create an identity based on public/private keys. This identity will handle the private/public key logic on behalf of the DApp.
+The first step is to create an identity based on a set of public and private keys. This identity will handle the private/public key logic on behalf of the DApp.
 
-We start by creating a public `CreateToken` class and generating the identity using the `RadixIdentities.loadOrCreateEncryptedFile()` method:
+We start by generating the identity using the `RadixIdentities.loadOrCreateEncryptedFile()` method:
 
 ```java
+//...
 RadixIdentity identity = RadixIdentities.loadOrCreateEncryptedFile("my.key", "password123");
-
 ```
 
 ### Initializing the API
@@ -140,7 +140,7 @@ result.blockUntilComplete();
 At this point, we have all the basic building blocks for our simple Token DApp. Now, to have a complete and functional DApp, let's add some finishing touches:
 
 * Add the required imports
-* Build a `main` method to run and test by sending a few tokens to another address
+* Build a `main()` method to run and test by sending a few tokens to another address
 * Print out some basic information
 
 ```java

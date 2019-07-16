@@ -77,11 +77,8 @@ The first step is to create an identity based on public/private keys. This ident
 We start by creating a public `CreateToken` class and generating the identity using the `RadixIdentities.loadOrCreateEncryptedFile()` method:
 
 ```java
-public class CreateToken {
-  public static void main(String[] args) {
-    RadixIdentity identity = RadixIdentities.loadOrCreateEncryptedFile("my.key", "password123");
-  }
-}
+RadixIdentity identity = RadixIdentities.loadOrCreateEncryptedFile("my.key", "password123");
+
 ```
 
 ### Initializing the API

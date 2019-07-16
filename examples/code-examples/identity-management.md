@@ -8,7 +8,7 @@ Let's review some code examples on how to handle identities with the Java client
 * [Generating an Address](identity-management.md#generating-an-address)
 
 {% hint style="success" %}
-**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
+**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide]().
 {% endhint %}
 
 ## Creating an Identity

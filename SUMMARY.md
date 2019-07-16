@@ -7,7 +7,6 @@
 ## Guides
 
 * [Getting started](guides/getting-started.md)
-* [Get started \(tokens\)](guides/get-started-2.md)
 
 ## Examples
 

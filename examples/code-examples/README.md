@@ -23,6 +23,6 @@ These code examples are divided into several topics:
   * [Retrieving tokens](token-management.md#retrieving-tokens)
 
 {% hint style="success" %}
-**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
+**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide]().
 {% endhint %}
 

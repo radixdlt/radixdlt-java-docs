@@ -8,7 +8,7 @@ Let's review some code examples on how to handle messages with the Java client l
 * [Receiving messages](message-management.md#receiving-messages)
 
 {% hint style="success" %}
-**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
+**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide]().
 {% endhint %}
 
 ## Sending messages

@@ -7,6 +7,7 @@
 ## Guides
 
 * [Getting started](guides/getting-started.md)
+* [Enabling debug logging](guides/enabling-debug-logging.md)
 
 ## Examples
 

@@ -6,7 +6,7 @@ While developing a software application, having a simple way to enable logging f
 
 ## Enabling logging
 
-To enable the SLF4J logging module, you need to create a `simplelogger.properties` file into the following `radixdlt-java` library path: 
+To enable the SLF4J logging module, you need to create a `simplelogger.properties` file in the root of your project's resources bundle. Typically this would be in the following path:
 
 ```text
 src/main/resources/simplelogger.properties

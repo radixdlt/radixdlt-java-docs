@@ -32,12 +32,14 @@ You can install the **`radixdlt-java`** library via gradle:
 
 ```java
 repositories {
+    jcenter()
     maven { url 'https://jitpack.io' }
 }
 ```
 
 ```java
 implementation 'com.radixdlt:radixdlt-java:dbfd5064e5'
+implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
 ```
 
 ### Recommendations
@@ -74,24 +76,24 @@ Now that we have done a brief overview of the concepts behind Radix and we share
 
 The first step is to create an identity based on a set of public and private keys. This identity will handle the private/public key logic on behalf of the DApp.
 
-We start by generating the identity using the `RadixIdentities.loadOrCreateEncryptedFile()` method:
+We start by generating an ephemeral identity using the `RadixIdentities.createNew()` method:
 
 ```java
 //...
-RadixIdentity identity = RadixIdentities.loadOrCreateEncryptedFile("my.key", "password123");
+RadixIdentity identity = RadixIdentities.createNew();
 ```
 
 ### Initializing the API
 
-Next, we initialize the API by using our identity and selecting to bootstrap into the desired network. In this case, we will use the **LOCALHOST\_SINGLENODE** universe configuration since it's our main testing environment.
+Next, we initialize the API by using our identity and selecting to bootstrap into the desired network. In this case, we will use the **BETANET** universe configuration since it's our main testing environment.
 
 We initialize the application API by calling the `RadixApplicationAPI.create()` method:
 
 ```java
 //...
-RadixIdentity identity = RadixIdentities.loadOrCreateEncryptedFile("my.key", "password123");
+RadixIdentity identity = RadixIdentities.createNew();
 
-RadixApplicationAPI api = RadixApplicationAPI.create(Bootstrap.LOCALHOST_SINGLENODE, identity);
+RadixApplicationAPI api = RadixApplicationAPI.create(Bootstrap.BETANET, identity);
 ```
 
 ### Creating an RRI
@@ -130,9 +132,8 @@ Now that we have tokens on the ledger, we can send some tokens to any other addr
 //...
 RRI tokenRRI = RRI.of(api.getAddress(), "TOKEN");
 
-RadixAddress toAddress = RadixAddress.from("JEbhKQzBn4qJzWJFBbaPioA2GTeaQhuUjYWkanTE6N8VvvPpvM8");
-Result result = api.sendTokens(tokenRRI, toAddress, BigDecimal.valueOf(10.99));
-result.blockUntilComplete();
+RadixAddress toAddress = api.getAddress(RadixIdentities.createNew().getPublicKey());
+api.sendTokens(tokenRRI, toAddress, BigDecimal.valueOf(10.99)).blockUntilComplete();
 ```
 
 ### Finishing touches
@@ -144,36 +145,41 @@ At this point, we have all the basic building blocks for our simple Token DApp. 
 * Print out some basic information
 
 ```java
+import java.math.BigDecimal;
+
 import com.radixdlt.client.application.RadixApplicationAPI;
-import com.radixdlt.client.application.RadixApplicationAPI.Result;
 import com.radixdlt.client.application.identity.RadixIdentities;
 import com.radixdlt.client.application.identity.RadixIdentity;
 import com.radixdlt.client.atommodel.accounts.RadixAddress;
 import com.radixdlt.client.core.Bootstrap;
 import com.radixdlt.client.core.atoms.particles.RRI;
-import java.math.BigDecimal;
 
 public class CreateToken {
   public static void main(String[] args) {
-    RadixIdentity identity = RadixIdentities.loadOrCreateEncryptedFile("my.key", "password123");
-    RadixApplicationAPI api = RadixApplicationAPI.create(Bootstrap.LOCALHOST_SINGLENODE, identity);
+    // Create an ephemeral identity
+    RadixIdentity identity = RadixIdentities.createNew();
+    RadixApplicationAPI api = RadixApplicationAPI.create(Bootstrap.BETANET, identity);
 
-	System.out.println("My address: " + api.getAddress());
-	System.out.println("My public key: " + api.getPublicKey());
-	        
+    System.out.println("My address: " + api.getAddress());
+    System.out.println("My public key: " + api.getPublicKey());
+
     // Create and mint tokens
     RRI tokenRRI = RRI.of(api.getAddress(), "TOKEN");
     api.createMultiIssuanceToken(tokenRRI, "Cool Token", "The Best Token!").blockUntilComplete();
     api.mintTokens(tokenRRI, BigDecimal.valueOf(1000000.00)).blockUntilComplete();
- 
+
     // Observe current and future total balance
-	api.observeBalance(tokenRRI)
-		.subscribe(balance -> System.out.println("My Balance: " + balance));
-	   
-    // Send tokens to another address
-    RadixAddress toAddress = RadixAddress.from("JEbhKQzBn4qJzWJFBbaPioA2GTeaQhuUjYWkanTE6N8VvvPpvM8");
-    Result result = api.sendTokens(tokenRRI, toAddress, BigDecimal.valueOf(10.99));
-    result.blockUntilComplete();
+    api.observeBalance(tokenRRI)
+      .subscribe(balance -> System.out.println("My Balance: " + balance));
+
+    // Send tokens to another ephemeral address
+    RadixAddress toAddress = api.getAddress(RadixIdentities.createNew().getPublicKey());
+    System.out.println("Receiver address: " + toAddress);
+    System.out.println("Receiver public key: " + toAddress.getPublicKey());
+    api.sendTokens(tokenRRI, toAddress, BigDecimal.valueOf(10.99)).blockUntilComplete();
+
+    System.out.println("Finished!");
+    System.exit(0);
   }
 }
 ```
@@ -181,11 +187,13 @@ public class CreateToken {
 Running this code will produce an output similar to this:
 
 ```text
-My address: 9gSXsYLMfHg7nRkDGhmBvNjuLmC9ofAUmtCXQLHwQjGi9aGkPRu
-My public key: Av0cLexYLjzRNBrhzEktc/+k5mljBD8fcn1QAGwGdTHc
+My address: 9hBfXVvWYjmVaLtZ9XG8FMdx68eeZeXwXMTwmiUiEjcia5d4sh9
+My public key: A18L50ar+I5gLSxQur0h8KtQP4WTUvMsgp8rFHtn9Mks
 My Balance: 1000000.000000000000000000
+Receiver address: 9gAhSHstFvfuMk76zr6xFHxsP8owwHdebkgjvduM8a8gggCXpaH
+Receiver public key: AtknkWX83wzv0wO29RHIjceEjLK7fHSlmBhyZ2m+kzD2
 My Balance: 999989.010000000000000000
-
+Finished!
 ```
 
 Congratulations! You have now created, minted and sent an ERC-like Token using the Radix Network.

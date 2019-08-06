@@ -2,7 +2,7 @@
 
 * [Java client library](README.md)
 * [API reference](https://radixdlt.github.io/library-api-docs/radixdlt-java/1.0.0-beta-core-1.0.0-beta/)
-* [Knowledge Base](https://docs.radixdlt.com/)
+* [Knowledge Base](https://docs.radixdlt.com/kb/)
 * [GitHub project](https://github.com/radixdlt/radixdlt-java)
 
 ## Guides

@@ -8,7 +8,7 @@ Let's review some code examples on how to handle generic tasks:
 * [Initializing the Application API](general-use.md#initializing-the-dapp-api)
 
 {% hint style="success" %}
-**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide]().
+**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
 {% endhint %}
 
 ## Initializing a Universe

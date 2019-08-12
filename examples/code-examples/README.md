@@ -4,18 +4,18 @@ In this section, we demonstrate a few implementation examples to execute basic t
 
 These code examples are divided into several topics:
 
-* **General**
+* **General use**
   * [Initializing a Universe](general-use.md#initializing-a-universe)
-  * [Initializing the Application API](general-use.md#initializing-the-dapp-api)
-* **Manage transactions**
-  * [Executing atomic transactions](transaction-management.md#executing-atomic-transactions)
-* **Manage identities**
+  * [Initializing the Application API](general-use.md#initializing-the-application-api)
+* **Identity management**
   * [Creating an Identity](identity-management.md#creating-an-identity)
-  * [Generating an Address](identity-management.md#generating-an-address)
-* **Manage messages**
-  * [Sending messages](transaction-management.md#storing-data)
-  * [Receiving messages](transaction-management.md#retrieving-data)
-* **Manage tokens**
+  * [Getting an Address](identity-management.md#getting-an-address)
+* **Message management**
+  * [Sending messages](message-management.md#sending-messages)
+  * [Receiving messages](message-management.md#receiving-messages)
+* **Transaction management**
+  * [Executing atomic transactions](transaction-management.md#executing-atomic-transactions)
+* **Token management**
   * [Creating a token](token-management.md#creating-a-token)
   * [Minting tokens](token-management.md#minting-tokens)
   * [Burning tokens](token-management.md#burning-tokens)

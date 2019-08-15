@@ -168,14 +168,20 @@ public class CreateToken {
     api.createMultiIssuanceToken(tokenRRI, "Cool Token", "The Best Token!").blockUntilComplete();
     api.mintTokens(tokenRRI, BigDecimal.valueOf(1000000.00)).blockUntilComplete();
 
-    // Observe current and future total balance
+    // Observe my current and future total balance
     api.observeBalance(tokenRRI)
       .subscribe(balance -> System.out.println("My Balance: " + balance));
 
-    // Send tokens to another ephemeral address
+    // Create another ephemeral address
     RadixAddress toAddress = api.getAddress(RadixIdentities.createNew().getPublicKey());
     System.out.println("Receiver address: " + toAddress);
     System.out.println("Receiver public key: " + toAddress.getPublicKey());
+    
+    // Observe the receiver's future total balance
+    api.observeBalance(toAddress, tokenRRI)
+      .subscribe(balance -> System.out.println("Receiver Balance: " + balance));
+         
+    // Send tokens to the receiver ephemeral address
     api.sendTokens(tokenRRI, toAddress, BigDecimal.valueOf(10.99)).blockUntilComplete();
 
     System.out.println("Finished!");
@@ -193,6 +199,7 @@ My Balance: 1000000.000000000000000000
 Receiver address: 9gAhSHstFvfuMk76zr6xFHxsP8owwHdebkgjvduM8a8gggCXpaH
 Receiver public key: AtknkWX83wzv0wO29RHIjceEjLK7fHSlmBhyZ2m+kzD2
 My Balance: 999989.010000000000000000
+Receiver Balance: 10.990000000000000000
 Finished!
 ```
 

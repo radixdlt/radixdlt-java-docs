@@ -11,7 +11,7 @@ Let's review some code examples on how to handle tokens with the Java client lib
 * [Retrieving tokens](token-management.md#retrieving-tokens)
 
 {% hint style="success" %}
-**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide]().
+**Tip:** if you're new to our Java library, we suggest you begin with our [Get Started guide](../../guides/getting-started.md).
 {% endhint %}
 
 ## Creating a token 
